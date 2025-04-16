@@ -1,0 +1,11 @@
+.form {
+    display: inline-block;
+    margin: 8px;
+    margin-top: 12px;
+}
+
+.container {
+    height: 500px;
+    margin: 8px;
+    border: 1px solid gray;
+}

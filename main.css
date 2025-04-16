@@ -1,0 +1,216 @@
+:root {
+    --main-color: #3f5bd5;
+    --secondary-color: #803cac;
+
+    --text-dark: #343a3c;
+    --text-light: #788488;
+    --background-dark: #191930;
+    --background-light: #f4e8e8;
+    --white:white;
+    --shadow:0 4px 5px rgba(0, 0, 0, 0.1);
+    --transition:all 0.35s ease;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Arial',sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+.animationBackground{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 9%, rgba(250, 232, 232, 1) 100%, rgba(0, 0, 0, 1) 42%);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+
+}
+@keyframes gradient {
+    0%{background-position: 0 50%;}
+    50%{background-position: 50% 100%;}
+    100%{background-position: 0 50%;}
+}
+.header{
+    position: relative;
+    overflow:hidden;
+    padding: 6rem 1rem;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #1a1a2e, #1a294c);
+}
+
+.contentHeader{
+    margin: 0 auto;
+    max-width: 800px;
+}
+.headerTitle {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--main-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.headerSubtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-light);
+    margin: 15px;
+}
+.contentMain{
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.buttonsGrid{
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px, 1fr));
+    gap: 1rem;
+    padding:  1rem;
+}
+.card {
+    position: relative;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--main-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+}
+
+.card:hover::before {
+    height: 10px;
+}
+
+.iconCard {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+.card-astar {
+    border-top: 4px solid #9535d3;
+}
+.card-astar:hover .iconCard {
+    color: #9535d3;
+}
+
+.card-clustering {
+    border-top: 4px solid #3ad335;
+}
+.card-clustering:hover .iconCard {
+    color: #3ad335;
+}
+
+.card-tree {
+    border-top: 4px solid #00cec9;
+}
+.card-tree:hover .iconCard {
+    color: #00cec9;
+}
+
+.card-genetic {
+    border-top: 4px solid #fd79a8;
+}
+.card-genetic:hover .iconCard {
+    color: #fd79a8;
+}
+
+.card-neural {
+    border-top: 4px solid #a29bfe;
+}
+.card-neural:hover .iconCard {
+    color: #a29bfe;
+}
+
+.card-ant {
+    border-top: 4px solid #e17055;
+}
+.card-ant:hover .iconCard {
+    color: #e17055;
+}
+
+.footer{
+    background-color: var(--background-dark);
+    color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 5rem;
+}
+.contentFooter{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.copyright{
+    font-size: 0.6rem;
+    color:rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+}
+.socialNetworks{
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+.socLink{
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+.socLink:hover{
+    color:var(--main-color);
+    transform: translateY(-4px);
+}
+@media (max-width: 768px) {
+    .headerTitle{
+        font-size: 1.8rem;
+    }
+    .headerSubtitle{
+        font-size: 0.9rem;
+    }
+    .buttonsGrid{
+        grid-template-columns: 1fr;
+    }
+    [class ^="Card"]{
+        padding: 1.4rem;
+    }
+}

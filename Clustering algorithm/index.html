@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="clastering.css">
+  <title>Кластеризация точек</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Кластеризация точек</h1>
+
+  <div class="options">
+    <label>Кластеры: <input type="number" id="clusterCount" min="2" max="10" value="3"></label>
+    <label>Размер точек: <input type="range" id="pointSize" min="3" max="15" value="5"></label>
+  </div>
+
+  <div class="buttons">
+    <button id="clusterButton">Выполнить кластеризацию</button>
+    <button id="clearButton">Очистить поле</button>
+  </div>
+
+  <canvas id="canvas" width="800" height="500"></canvas>
+
+  <div style="text-align: center; margin-top: 10px; color: #453d3d;">
+    Кликните на поле, чтобы добавить точки
+  </div>
+</div>
+
+<script src="clastering.js"></script>
+</body>
+</html>
