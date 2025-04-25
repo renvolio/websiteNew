@@ -1,13 +1,36 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <link rel="stylesheet" href="styles.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<a href="../index.html">на главную</a>-->
+<!--<button onclick="clearCanvas()">Очистить</button>-->
+<!--<canvas id="c1" width="500" height="500"></canvas>-->
+<!--<script src="JavaScript.js"></script>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Digit Recognizer</title>
+    <script defer src="JavaScript.js"></script>
+    <style>
+        canvas {
+            border: 1px solid black;
+            image-rendering: pixelated;
+        }
+    </style>
 </head>
 <body>
-<a href="../index.html">на главную</a>
-<canvas id="c1" width="500" height="500"></canvas>
-<script src="JavaScript.js"></script>
+<h1>Нарисуй цифру</h1>
+<canvas id="canvas" width="280" height="280" style="border:1px solid #ccc;"></canvas><br>
+<button id="predictBtn">Предсказать</button>
+<button id="clearBtn">Очистить</button>
+<p id="result"></p>
+<div id="probs" style="font-family: monospace;"></div>
 </body>
 </html>

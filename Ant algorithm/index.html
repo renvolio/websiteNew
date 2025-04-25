@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Муравьиный алгоритм</title>
+  <link rel="stylesheet" href="ant.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<a href="../index.html">
-  на главную
-</a>
+<div class="animationBackground"></div>
+
+<header class="header">
+  <div class="contentHeader">
+    <h1 class="headerTitle">Муравьиный алгоритм</h1>
+    <p class="headerSubtitle">Кликай по полю, чтобы расставить точки, затем запускай алгоритм поиска кратчайшего пути</p>
+  </div>
+  <a href="../index.html">
+    на главную
+  </a>
+</header>
+
+<main class="contentMain">
+  <div class="canvasWrapper">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+
+  <div class="settings">
+    <button id="start"><i class="fas fa-play"></i> Старт</button>
+    <button id="clear"><i class="fas fa-eraser"></i> Очистить</button>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="contentFooter">
+    <p class="copyright">© 2025 Михаил Голиков | Визуализация алгоритмов</p>
+    <div class="socialNetworks">
+      <a href="https://github.com/MikhailGolikov" class="socLink" aria-label="Github"><i class="fab fa-github"></i></a>
+      <a href="https://t.me/mmmo06t" class="socLink" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://vk.com/mmmo06t" class="socLink" aria-label="VK"><i class="fab fa-vk"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="ant.js"></script>
 </body>
 </html>

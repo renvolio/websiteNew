@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="clastering.css">
-  <title>Кластеризация точек</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кластеризация - K-средние</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="clastering.css" />
 </head>
 <body>
-<div class="container">
-  <h1>Кластеризация точек</h1>
 
-  <div class="options">
-    <label>Кластеры: <input type="number" id="clusterCount" min="2" max="10" value="3"></label>
-    <label>Размер точек: <input type="range" id="pointSize" min="3" max="15" value="5"></label>
+<div class="animationBackground"></div>
+
+<!-- Шапка -->
+<header class="header">
+  <div class="contentHeader">
+    <h1 class="headerTitle">Кластеризация</h1>
+    <p class="headerSubtitle">Кликай по плоскости — расставляй точки — запускай алгоритм</p>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<main class="contentMain">
+  <div class="canvasWrapper">
+    <canvas id="canvas" width="600" height="600"></canvas>
   </div>
 
-  <div class="buttons">
-    <button id="clusterButton">Выполнить кластеризацию</button>
-    <button id="clearButton">Очистить поле</button>
-  </div>
+  <div class="settings">
+    <label for="kValue">Количество кластеров:</label>
+    <input type="number" id="kValue" value="3" min="1" max="10" />
 
-  <canvas id="canvas" width="800" height="500"></canvas>
 
-  <div style="text-align: center; margin-top: 10px; color: #453d3d;">
-    Кликните на поле, чтобы добавить точки
+    <button id="start"><i class="fas fa-play"></i> Старт</button>
+    <button id="clear"><i class="fas fa-eraser"></i> Очистить</button>
   </div>
-</div>
+</main>
+
+
+
+<!-- Подвал -->
+<footer class="footer">
+  <div class="contentFooter">
+    <p class="copyright">© 2025 Михаил Голиков | Визуализация алгоритмов</p>
+    <div class="socialNetworks">
+      <a href="https://github.com/MikhailGolikov" class="socLink" aria-label="Github"><i class="fab fa-github"></i></a>
+      <a href="https://t.me/mmmo06t" class="socLink" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://vk.com/mmmo06t" class="socLink" aria-label="VK"><i class="fab fa-vk"></i></a>
+    </div>
+  </div>
+</footer>
 
 <script src="clastering.js"></script>
 </body>

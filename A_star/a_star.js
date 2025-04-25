@@ -13,7 +13,9 @@ let maze = Array(rows).fill().map(()=>Array(cols).fill(1));
 let start = {x:0, y: 0};
 let end = {x:cols - 1, y:rows - 1};
 
-
+function wait(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 function generateMaze(){
     maze[start.y][start.x] = 0;
 
@@ -82,7 +84,7 @@ function regenerateMaze(){
     drawGrid();
 }
 
-regenerateMaze();
+
 
 function getRandomCell() {
     let cell;
@@ -103,13 +105,21 @@ function randomizeStartEnd() {
         end = getRandomCell();
     }
 }
-document.getElementById('generateLabirint').addEventListener('click', regenerateMaze);
-document.getElementById('randomizePoints').addEventListener('click', function() {
-    randomizeStartEnd();
-    drawGrid();
-});
+function drawPath(Path){
+    for (let i = 0; i  < Path.length - 1; i++){
+        ctx.fillStyle = "#06d9fd";
+        const x = Path[i].x * cellWidth + 1;
+        const y = Path[i].y * cellHeight + 1;
+        ctx.fillRect(x, y, cellWidth - 2, cellHeight - 2);
+    }
+    ctx.fillStyle = "green";
+    ctx.fillRect(start.x * cellWidth, start.y * cellHeight, cellWidth, cellHeight);
 
-function findPath(){
+    ctx.fillStyle = "red";
+    ctx.fillRect(end.x * cellWidth, end.y * cellHeight, cellWidth, cellHeight);
+}
+
+async function findPath(){
     let notUsedList = [];
     let usedList = [];
 
@@ -135,6 +145,12 @@ function findPath(){
         usedList.push(minCost);
         notUsedList = notUsedList.filter(cell => cell !== minCost);
 
+        if (!(minCost.x === start.x && minCost.y === start.y) &&
+            !(minCost.x === end.x && minCost.y === end.y)) {
+            ctx.fillStyle = "#FFC567";
+            ctx.fillRect(minCost.x * cellWidth + 1, minCost.y * cellHeight + 1, cellWidth - 2, cellHeight - 2);
+            await wait(60);
+        }
         if(minCost.x === end.x && minCost.y === end.y){
             let nowCell = minCost;
             let Path = [];
@@ -144,8 +160,8 @@ function findPath(){
                 nowCell = nowCell.parent;
             }
             console.log("Путь найден" , Path);
-            drowPath(Path);
-            break;
+            drawPath(Path);
+            return;
         }
 
         let neighbors = [
@@ -182,16 +198,14 @@ function findPath(){
             }
         }
     }
+    alert("Пути нет!")
 }
 
-function drowPath(Path){
-    ctx.fillStyle = "green";
-    Path.forEach(cell => {
-        const x = cell.x * cellWidth;
-        const y = cell.y * cellHeight;
-        ctx.fillRect(x, y, cellWidth, cellHeight);
-    })
-}
+document.getElementById('generateLabirint').addEventListener('click', regenerateMaze);
+document.getElementById('randomizePoints').addEventListener('click', function () {
+    randomizeStartEnd();
+    drawGrid();
+});
 
 document.getElementById('findPath').addEventListener('click', function () {
     findPath();
@@ -209,5 +223,5 @@ canvas.addEventListener('click',function (event){
 
     drawGrid();
 });
-
+regenerateMaze();
 

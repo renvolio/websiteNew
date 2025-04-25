@@ -27,7 +27,9 @@ class Rect {
         const y = this.start_y + Rect.height;
         return [x,y];
     }
-    draw(context) {
+    draw(context, color, lineWidth) {
+        context.strokeStyle = color;
+        context.lineWidth = lineWidth;
         context.strokeRect(this.start_x, this.start_y, Rect.width, Rect.height);
         context.fillStyle = "black";        
         context.fillText(this.textInside, this.center()[0], this.center()[1]);
@@ -55,10 +57,10 @@ class Node {
         this.lvl = 0;
         this.rect = null;
     }
-    is_full() {
+    isFull() {
         return this.children.length === this.children_count;
     }
-    is_leaf() {
+    isLeaf() {
         return this.children.length === 0;
     }
 }
@@ -79,7 +81,7 @@ class Tree {
         this.breadth = 0;
     }
     push(value, condition, childrenCount) {
-        while (this.queue.length >= 1 && this.queue[0].is_full()) {
+        while (this.queue.length >= 1 && this.queue[0].isFull()) {
             this.queue.shift();
         }
         const currNode = this.queue[0];
@@ -104,6 +106,7 @@ class Tree {
         currNode.children.push(newNode);
     }
     draw(context) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
         let x, y, step;
         const width = Rect.width + Rect.margin;
@@ -116,21 +119,19 @@ class Tree {
                 y = height * nodes[i].lvl;
                 nodes[i].rect = new Rect(x, y, nodes[i].value, nodes[i].condition);
                 x += width;
-                nodes[i].rect.draw(context);
+                nodes[i].rect.draw(context, "black", 1);
                 this.bind(nodes[i].parent, nodes[i]); 
             }
         }
+        context.stroke();
         context.closePath();
     }
     bind(node1, node2) {
         if (node1 && node2) {
-            context.strokeStyle = "gray";
+            context.strokeStyle = "black";
             context.lineWidth = 0.5;
             context.moveTo(node1.rect.centerBottom()[0], node1.rect.centerBottom()[1]);
             context.lineTo(node2.rect.centerTop()[0], node2.rect.centerTop()[1]);
-            context.stroke();
-            context.strokeStyle = "black";
-            context.lineWidth = 1;
         } 
     }
 }
@@ -150,16 +151,16 @@ let tree;
 
 
 
-const sample = document.sample,
-    textElement = sample.input,
-    buttonSave = sample.save,
-    buttonEdit = sample.edit;
+const sampleForm = document.sample,
+    textElement = sampleForm.input,
+    buttonSave = sampleForm.save,
+    buttonEdit = sampleForm.edit;
 buttonSave.onclick = buttonSaveClick;
 buttonEdit.onclick = buttonEditClick;
 
 function buttonSaveClick() {
     tree = new Tree();
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    
     const nodes = textElement.value.split('\n');
     for (let node of nodes) {
         const value = node.split(',')[0],
@@ -186,23 +187,26 @@ buttonSave2.onclick = buttonSaveClick2;
 buttonEdit2.onclick = buttonEditClick2;
 
 function buttonSaveClick2() {
+    tree.draw(context);
     textElement2.disabled = 1;
-    context.strokeStyle = "red";
     context.lineWidth = 2;
-    const options = textElement2.value.split('\n');
-    let node = tree.root;
-    node.rect.draw(context);
+    const elems = textElement2.value.split('\n');
+    let currNode = tree.root;
+    currNode.rect.draw(context, "red", 2);
     for (let i = 0; i < tree.lvls; i++) {
-        const condition = options[i].split(',')[1];
-        for (let child of node.children) {
-            if (child.condition === condition) {
-                child.rect.draw(context);
-                node = child;
-                break;
+        for (let elem of elems) {
+            for (let child of currNode.children) {
+                const value = elem.split(',')[0];
+                const condition = elem.split(',')[1];
+                if (currNode.value === value && child.condition === condition) {
+                    child.rect.draw(context, "red", 2);
+                    currNode = child;
+                    elem = null;
+                    break;
+                }
             }
         }
     }
-    
 }
 
 function buttonEditClick2() {

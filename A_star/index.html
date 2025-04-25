@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Визуализация алгоритма A*</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритм A*</title>
     <link rel="stylesheet" href="a_star.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<div class="name">
-    <h1>Алгоритм A*</h1>
-</div>
+<div class="animationBackground"></div>
 
-<div class="container">
-    <div class="canvas-container">
-        <canvas id="maze" width="500" height="500"></canvas>
-        <div class="canvas-name">Лабиринт</div>
+<header class="header">
+    <div class="contentHeader">
+        <h1 class="headerTitle">Алгоритм A*</h1>
+        <p class="headerSubtitle">Генерация лабиринта и поиск кратчайшего пути</p>
     </div>
-    <div class="buttons">
+</header>
+
+<main class="contentMain">
+    <div class="canvasWrapper">
+        <canvas id="maze" width="500" height="500"></canvas>
+    </div>
+    <div class="settings">
         <button id="generateLabirint">Сгенерировать лабиринт</button>
         <button id="randomizePoints">Смена начальных точек</button>
         <button id="findPath">Найти путь</button>
-
     </div>
-</div>
+</main>
 
-<a href="../index.html">На главную</a>
+<footer class="footer">
+    <div class="contentFooter">
+        <p class="copyright">© 2025 Михаил Голиков | Визуализация алгоритмов</p>
+        <div class="socialNetworks">
+            <a href="https://github.com/MikhailGolikov" class="socLink" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="https://t.me/mmmo06t" class="socLink" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://vk.com/mmmo06t" class="socLink" aria-label="VK"><i class="fab fa-vk"></i></a>
+        </div>
+    </div>
+</footer>
 
 <script src="a_star.js"></script>
-
 </body>
 </html>
