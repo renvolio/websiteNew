@@ -1,36 +1,53 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--    <link rel="stylesheet" href="styles.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<a href="../index.html">на главную</a>-->
-<!--<button onclick="clearCanvas()">Очистить</button>-->
-<!--<canvas id="c1" width="500" height="500"></canvas>-->
-<!--<script src="JavaScript.js"></script>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Digit Recognizer</title>
-    <script defer src="JavaScript.js"></script>
-    <style>
-        canvas {
-            border: 1px solid black;
-            image-rendering: pixelated;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Нейронная сеть</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<h1>Нарисуй цифру</h1>
-<canvas id="canvas" width="280" height="280" style="border:1px solid #ccc;"></canvas><br>
-<button id="predictBtn">Предсказать</button>
-<button id="clearBtn">Очистить</button>
-<p id="result"></p>
-<div id="probs" style="font-family: monospace;"></div>
+
+<div class="animationBackground"></div>
+
+<!-- Шапка -->
+<header class="header">
+    <div class="contentHeader">
+        <h1 class="headerTitle">Нейронная сеть</h1>
+        <p class="headerSubtitle">Рисуй цифру - нейронная сеть напишет результат</p>
+    </div>
+</header>
+
+<!-- Основной контент -->
+<main class="contentMain">
+    <div class="canvasWrapper">
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class="settings">
+
+        <button id="start"><i class="fas fa-play"></i> Предсказать</button>
+        <button id="clear"><i class="fas fa-eraser"></i> Очистить</button>
+        <p id="result"></p>
+        <div id="probs" style="font-family: monospace;"></div>
+    </div>
+</main>
+
+
+
+<!-- Подвал -->
+<footer class="footer">
+    <div class="contentFooter">
+        <p class="copyright">© 2025 Михаил Голиков | Визуализация алгоритмов</p>
+        <div class="socialNetworks">
+            <a href="https://github.com/MikhailGolikov" class="socLink" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="https://t.me/mmmo06t" class="socLink" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://vk.com/mmmo06t" class="socLink" aria-label="VK"><i class="fab fa-vk"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="JavaScript.js"></script>
 </body>
 </html>

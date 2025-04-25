@@ -103,7 +103,7 @@ function draw(event) {
 }
 
 
-const predictButton = document.getElementById('predictBtn');
+const predictButton = document.getElementById('start');
 predictButton.addEventListener('click', function () {
     const smallCanvas = document.createElement('canvas');
     smallCanvas.width = 28;
@@ -154,7 +154,7 @@ predictButton.addEventListener('click', function () {
     probsElement.innerHTML = allProbabilitiesText;
 });
 
-document.getElementById('clearBtn').addEventListener('click', () => {
+document.getElementById('clear').addEventListener('click', () => {
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
