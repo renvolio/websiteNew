@@ -1,34 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>chihuahua</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-    <a href="../index.html">
-        на главную
-    </a>
-        <div class="container" id="main container">
-            <canvas id="canvas"></canvas>
-        </div>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дерево решений</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<div class="animationBackground"></div>
+
+<header class="header">
+    <div class="contentHeader">
+        <h1 class="headerTitle">Дерево решений</h1>
+        <p class="headerSubtitle">Визуализация структуры и пути обхода</p>
+    </div>
+</header>
+
+<main id="main container" class="contentMain">
+    <!-- Canvas -->
+    <div class="canvasWrapper">
+        <canvas id="canvas" width="1000" height="600"></canvas>
+    </div>
+
+    <!-- Ввод структуры дерева -->
+    <form name="sample" class="settings">
+        <label>Введите структуру дерева:</label>
+        <textarea name="input" rows="6" placeholder="значение,условие,кол-во детей\nнапример:\nRoot,checkA,2\nA1,checkB,0\nA2,checkC,0"></textarea>
         <div>
-            <form class="form" name="sample" method="post">
-                <textarea name="input"   placeholder="text" cols="40" rows="5" wrap="on"></textarea>
-                <p>
-                    <button name="save" type="button">save</button>
-                    <button name="edit" type="button">edit</button>
-                </p>
-            </form>
-            <form class="form" name="inputForm" method="post">
-                <textarea name="input" placeholder="text" cols="40" rows="5" wrap="on"></textarea>
-                <p>
-                    <button name="save" type="button">save</button>
-                    <button name="edit" type="button">edit</button>
-                </p>
-            </form>
+            <button type="button" name="save"><i class="fas fa-check"></i> Построить</button>
+            <button type="button" name="edit"><i class="fas fa-edit"></i> Редактировать</button>
         </div>
-        <script src="main.js"></script>
-        <!-- <script src="exp.js"></script> -->
-    </body>
+    </form>
+
+    <!-- Ввод пути обхода -->
+    <form name="inputForm" class="settings">
+        <label>Введите путь обхода:</label>
+        <textarea name="input" rows="4" placeholder="значение,условие\nнапример:\nRoot,checkA\nA1,checkB"></textarea>
+        <div>
+            <button type="button" name="save"><i class="fas fa-play"></i> Запустить</button>
+            <button type="button" name="edit"><i class="fas fa-edit"></i> Редактировать</button>
+        </div>
+    </form>
+</main>
+
+<footer class="footer">
+    <div class="contentFooter">
+        <p class="copyright">© 2025 Михаил Голиков | Визуализация алгоритмов</p>
+        <div class="socialNetworks">
+            <a href="https://github.com/MikhailGolikov" class="socLink"><i class="fab fa-github"></i></a>
+            <a href="https://t.me/mmmo06t" class="socLink"><i class="fab fa-telegram"></i></a>
+            <a href="https://vk.com/mmmo06t" class="socLink"><i class="fab fa-vk"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
 </html>
