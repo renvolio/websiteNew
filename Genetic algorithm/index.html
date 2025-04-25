@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<a href="../main.html">
-  на главную
-</a>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Генетический алгоритм</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    
+    <body>
+        <div class="animationBackground"></div>
+        <header class="header">
+            <div class="contentHeader">
+                <h1 class="headerTitle">Генетический алгоритм</h1>
+                <p class="headerSubtitle">Кликай по полю, чтобы расставить точки, затем запускай алгоритм поиска кратчайшего пути</p>
+            </div>
+            <div class="backButtonWrapper">
+                <a href="../main.html" class="backButton">
+                    <i class="fas fa-arrow-left"></i> На главную
+                </a>
+            </div>
+        </header>
+        <main class="contentMain">
+            <div class="canvasWrapper">
+                <canvas id="canvas" width="800" height="500"></canvas>
+            </div>
+            <div class="settings">
+                <button id="start"><i class="fas fa-play"></i> Старт</button>
+                <button id="clear"><i class="fas fa-eraser"></i> Очистить</button>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="contentFooter">
+                <p class="copyright">© 2025 Лебедин Владислав | Визуализация алгоритмов</p>
+            </div>
+        </footer>
+        <script src="main.js"></script>
+    </body>
 </html>
