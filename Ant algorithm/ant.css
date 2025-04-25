@@ -183,3 +183,28 @@ button:hover {
     margin-right: 8px;
     font-weight: bold;
 }
+.backButtonWrapper {
+    margin: 0;
+    text-align: left;
+
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+
+}
+
+.backButton:hover {
+    background-color: var(--main-color);
+    transform: translateY(-2px);
+}
